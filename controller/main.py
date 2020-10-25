@@ -5,7 +5,7 @@ from framebufferio import FramebufferDisplay
 from rgbmatrix import RGBMatrix
 from adafruit_bitmap_font import bitmap_font
 from adafruit_display_text.label import Label
-from components import FractionRect
+from graphics import FractionRect
 
 MINISTAT_FONT = bitmap_font.load_font("/ministat.bdf")
 
