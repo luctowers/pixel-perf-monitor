@@ -1,0 +1,2 @@
+controller/lib/*
+!controller/lib/required-libs.txt
