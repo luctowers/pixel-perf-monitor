@@ -8,5 +8,5 @@ if ($volumes.Count -eq 1) {
     Robocopy "$root\controller\" "$($volumes[0].DriveLetter):/" /MIR
   }
 } else {
-  throw "There must be exatly one volume labeled 'CIRCUITPY'."
+  throw "There must be exactly one volume labeled 'CIRCUITPY'."
 }
