@@ -1,13 +1,8 @@
 import board
 import displayio
-import terminalio
 from framebufferio import FramebufferDisplay
 from rgbmatrix import RGBMatrix
-from adafruit_bitmap_font import bitmap_font
-from adafruit_display_text.label import Label
-from graphics import FractionRect
-
-MINISTAT_FONT = bitmap_font.load_font("/ministat.bdf")
+from widgets import CpuWidget, GpuWidget
 
 displayio.release_displays()
 matrix = RGBMatrix(
@@ -19,13 +14,15 @@ matrix = RGBMatrix(
 display = FramebufferDisplay(matrix, auto_refresh=False)
 
 g = displayio.Group()
-f = FractionRect(0, 0, matrix.width, 7, fg=0x001000, bg=0x201010)
-l = Label(MINISTAT_FONT, text="GPU 42℃", color=0x000000, x=1, y=4)
-g.append(f)
-g.append(l)
+cpu = CpuWidget(0, 0, matrix.width, primary_color=0xf00000, secondary_color=0x201010, font_color=0x000000)
+gpu = GpuWidget(0, 9, matrix.width, primary_color=0x002000, secondary_color=0x201010, font_color=0x000000)
+g.append(cpu)
+g.append(gpu)
 display.show(g)
 
-f.value = 0.42
-
 while True:
+    for pu in [cpu, gpu]:
+        pu.activity = (pu.activity + 0.003) % 1.0
+        pu.memory_usage = (pu.memory_usage + 0.02) % 1.0
+        pu.temperature = (pu.temperature + 1) % 100
     display.refresh(target_frames_per_second=10)

@@ -2,18 +2,18 @@ import displayio
 
 class FractionRect(displayio.TileGrid):
 
-    def __init__(self, x, y, width, height, fg=0xFFFFFF, bg=None):
+    def __init__(self, x, y, width, height, primary_color, secondary_color):
         self._fraction = 0
         self._bitmap = displayio.Bitmap(height, width, 2)
         self._palette = displayio.Palette(2)
-        if bg is None:
+        if secondary_color is None:
             self._palette.make_transparent(0)
         else:
-            self._palette[0] = bg
-        if fg is None:
+            self._palette[0] = secondary_color
+        if primary_color is None:
             self._palette.make_transparent(1)
         else:
-            self._palette[1] = fg
+            self._palette[1] = primary_color
         super().__init__(self._bitmap, pixel_shader=self._palette, x=x, y=y)
         self.transpose_xy = True
 
