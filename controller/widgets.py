@@ -1,15 +1,16 @@
 import displayio
-from graphics import FractionRect
+from graphics import ScalarRect, VectorRect
 from fonts import MINISTAT_FONT
 from adafruit_display_text.label import Label
 
 class ProcessingUnitWidget(displayio.Group):
 
-  def __init__(self, x, y, width, primary_color, secondary_color, font_color, label):
-    self._label_graphic = Label(MINISTAT_FONT, text=label, color=font_color, anchor_point=(0.0,0.0), anchored_position=(1,1))
+  def __init__(self, x, y, width, primary_color, secondary_color, backlight_color, label):
+    self._label_graphic = Label(MINISTAT_FONT, text=label, color=0x000000, anchor_point=(0.0,0.0), anchored_position=(1,1))
     self._temperature = 0
-    self._temperature_graphic = Label(MINISTAT_FONT, text="--℃", color=font_color, anchor_point=(1.0,0.0), anchored_position=(width,1))
-    self._memory_usage_graphic = FractionRect(0, 8, width, 1, primary_color, secondary_color)
+    self._temperature_graphic = Label(MINISTAT_FONT, text="--℃", color=0x000000, anchor_point=(1.0,0.0), anchored_position=(width,1))
+    self._memory_usage_graphic = ScalarRect(0, 7, 2, width, secondary_color, backlight_color)
+    self._memory_usage_graphic.transpose_xy = True
     super().__init__(x=x, y=y)
     self.append(self._memory_usage_graphic)
     self.append(self._temperature_graphic)
@@ -35,9 +36,9 @@ class ProcessingUnitWidget(displayio.Group):
 
 class CpuWidget(ProcessingUnitWidget):
 
-  def __init__(self, x, y, width, primary_color, secondary_color, font_color):
-    super().__init__(x, y, width, primary_color, secondary_color, font_color, "CPU")
-    self._activity_graphic = FractionRect(0, 0, width, 7, primary_color, secondary_color)
+  def __init__(self, x, y, width, primary_color, secondary_color, backlight_color):
+    super().__init__(x, y, width, primary_color, secondary_color, backlight_color, "CPU")
+    self._activity_graphic = VectorRect(0, 0, width, 7, primary_color, backlight_color)
     self.insert(0, self._activity_graphic)
 
   @property
@@ -50,9 +51,10 @@ class CpuWidget(ProcessingUnitWidget):
 
 class GpuWidget(ProcessingUnitWidget):
 
-  def __init__(self, x, y, width, primary_color, secondary_color, font_color):
-    super().__init__(x, y, width, primary_color, secondary_color, font_color, "GPU")
-    self._activity_graphic = FractionRect(0, 0, width, 7, primary_color, secondary_color)
+  def __init__(self, x, y, width, primary_color, secondary_color, backlight_color):
+    super().__init__(x, y, width, primary_color, secondary_color, backlight_color, "GPU")
+    self._activity_graphic = ScalarRect(0, 0, width, 7, primary_color, backlight_color)
+    self._activity_graphic.flip_y = True
     self.insert(0, self._activity_graphic)
 
   @property

@@ -14,15 +14,18 @@ matrix = RGBMatrix(
 display = FramebufferDisplay(matrix, auto_refresh=False)
 
 g = displayio.Group()
-cpu = CpuWidget(0, 0, matrix.width, primary_color=0xf00000, secondary_color=0x201010, font_color=0x000000)
-gpu = GpuWidget(0, 9, matrix.width, primary_color=0x002000, secondary_color=0x201010, font_color=0x000000)
+cpu = CpuWidget(0, 0, matrix.width, primary_color=0xf00000, secondary_color=0x000010, backlight_color=0x201010)
+gpu = GpuWidget(0, 9, matrix.width, primary_color=0x002000, secondary_color=0x000010, backlight_color=0x201010)
 g.append(cpu)
 g.append(gpu)
 display.show(g)
 
+cpu.activity = [0.0, 0.5, 1.0, 0.3]
+cpu.memory_usage = 0.6
+cpu.temperature = 65
+gpu.activity = 0.4
+gpu.memory_usage = 0.35
+gpu.temperature = 49
+
 while True:
-  for pu in [cpu, gpu]:
-    pu.activity = (pu.activity + 0.003) % 1.0
-    pu.memory_usage = (pu.memory_usage + 0.02) % 1.0
-    pu.temperature = (pu.temperature + 1) % 100
   display.refresh(target_frames_per_second=10)
