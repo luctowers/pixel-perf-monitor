@@ -1,5 +1,5 @@
 import displayio
-from graphics import ScalarRect, VectorRect
+from graphics import ScalarRect, SkewedDistributionRect
 from fonts import MINISTAT_FONT
 from adafruit_display_text.label import Label
 
@@ -11,6 +11,7 @@ class ProcessingUnitWidget(displayio.Group):
     self._temperature_graphic = Label(MINISTAT_FONT, text="--℃", color=0x000000, anchor_point=(1.0,0.0), anchored_position=(width,1))
     self._memory_usage_graphic = ScalarRect(0, 7, 2, width, secondary_color, backlight_color)
     self._memory_usage_graphic.transpose_xy = True
+    self._memory_usage_graphic.flip_x = True
     super().__init__(x=x, y=y)
     self.append(self._memory_usage_graphic)
     self.append(self._temperature_graphic)
@@ -38,7 +39,7 @@ class CpuWidget(ProcessingUnitWidget):
 
   def __init__(self, x, y, width, primary_color, secondary_color, backlight_color):
     super().__init__(x, y, width, primary_color, secondary_color, backlight_color, "CPU")
-    self._activity_graphic = VectorRect(0, 0, width, 7, primary_color, backlight_color)
+    self._activity_graphic = SkewedDistributionRect(0, 0, width, 7, primary_color, backlight_color)
     self.insert(0, self._activity_graphic)
 
   @property

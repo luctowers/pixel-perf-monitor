@@ -1,22 +1,5 @@
 import displayio
-
-def resize_vector(vector, size):
-  def compute(index):
-    sample_begin = index / size * len(vector)
-    sample_begin_i = int(sample_begin)
-    sample_end = (index+1) / size * len(vector)
-    sample_end_i = int(sample_end)
-    if sample_begin_i == sample_end_i:
-      return vector[sample_begin_i]
-    else:
-      sum = 0
-      sum += vector[sample_begin_i] * (sample_begin_i - sample_begin + 1)
-      if sample_end - sample_end_i != 0:
-        sum += vector[sample_end_i] * (sample_end - sample_end_i)
-      for i in range(sample_begin_i+1, sample_end_i):
-        sum += vector[i]
-      return sum / (sample_end - sample_begin)
-  return [ compute(i) for i in range(size) ]
+import math
 
 class ScalarRect(displayio.TileGrid):
 
@@ -45,8 +28,8 @@ class ScalarRect(displayio.TileGrid):
     cached_transform = self.transpose_xy, self.flip_x, self.flip_y
     self.transpose_xy, self.flip_x, self.flip_y = False, False, False
     total = self._bitmap.width * self._bitmap.height
-    begin = round(total * min(1, max(0, self._fraction)))
-    end = round(total * min(1, max(0, fraction)))
+    begin = math.ceil(total * min(1, max(0, self._fraction)))
+    end = math.ceil(total * min(1, max(0, fraction)))
     if begin < end:
       for i in range(begin, end):
         self._bitmap[i] = 1
@@ -56,15 +39,13 @@ class ScalarRect(displayio.TileGrid):
     self.transpose_xy, self.flip_x, self.flip_y = cached_transform
     self._fraction = fraction
 
-class VectorRect(displayio.Group):
+class SkewedDistributionRect(displayio.Group):
 
   def __init__(self, x, y, width, height, primary_color, secondary_color):
     self._vector = None
-    super().__init__(max_size=width)
-    for i in range(width):
-      slice = ScalarRect(x+i, y, height, 1, primary_color, secondary_color)
-      slice.transpose_xy = True
-      slice.flip_x = True
+    super().__init__(x=x, y=y, max_size=height)
+    for i in range(height):
+      slice = ScalarRect(0, i, width, 1, primary_color, secondary_color)
       self.append(slice)
 
   @property
@@ -73,7 +54,14 @@ class VectorRect(displayio.Group):
 
   @value.setter
   def value(self, vector):
-    resized_vector = resize_vector(vector, len(self))
+    rows = [ 0 for y in range(len(self)) ]
+    for scalar in vector:
+      magnitude = len(self) * max(0, min(scalar, 1))
+      magnitude_i = int(magnitude)
+      magnitude_r = magnitude % 1
+      for i in range(magnitude_i):
+        rows[len(self)-i-1] += 1
+      rows[len(self)-magnitude_i-1] += magnitude_r
     for i in range(len(self)):
-      self[i].value = resized_vector[i]
+      self[i].value = rows[i] / len(vector)
     self._vector = vector
