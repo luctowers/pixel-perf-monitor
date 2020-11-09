@@ -1,4 +1,5 @@
 import board
+import supervisor
 import displayio
 from framebufferio import FramebufferDisplay
 from rgbmatrix import RGBMatrix
@@ -20,12 +21,19 @@ g.append(cpu)
 g.append(gpu)
 display.show(g)
 
-cpu.activity = [0.0, 0.5, 1.0, 0.3]
 cpu.memory_usage = 0.6
-cpu.temperature = 65
 gpu.activity = 0.4
 gpu.memory_usage = 0.35
 gpu.temperature = 49
 
 while True:
-  display.refresh(target_frames_per_second=10)
+  display.refresh(target_frames_per_second=60, minimum_frames_per_second=0)
+  while supervisor.runtime.serial_bytes_available:
+    command = input().split()
+    if command:
+      operation = command[0]
+      arguments = command[1:]
+      if operation == "cpu_load":
+        cpu.activity = list(map(float, arguments))
+      elif operation == "cpu_temperature":
+        cpu.temperature = max(map(round,map(float, arguments)))
