@@ -1,2 +1,5 @@
+__pycache__/
 controller/lib/*
 !controller/lib/required-libs.txt
+driver/lib/*
+!driver/lib/required-libs.txt
