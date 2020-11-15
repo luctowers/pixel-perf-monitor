@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1520"
+   height="340"
+   viewBox="0 0 402.16663 89.958331"
+   version="1.1"
+   id="svg8"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"
+   sodipodi:docname="diagram.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.979899"
+     inkscape:cx="742.39115"
+     inkscape:cy="111.253"
+     inkscape:document-units="px"
+     inkscape:current-layer="g1188"
+     inkscape:document-rotation="0"
+     showgrid="true"
+     units="px"
+     inkscape:window-width="1822"
+     inkscape:window-height="1051"
+     inkscape:window-x="89"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid10"
+       spacingx="5.2916664"
+       spacingy="5.2916664"
+       empspacing="2"
+       originx="5.2916664"
+       originy="5.2916664" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g1104">
+      <rect
+         style="fill:none;stroke:#000000;stroke-width:0.529167;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect837"
+         width="47.624996"
+         height="52.916664"
+         x="5.2916665"
+         y="5.2916665" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:5.64444px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+         x="29.104242"
+         y="12.068855"
+         id="text845"><tspan
+           sodipodi:role="line"
+           id="tspan843"
+           x="29.104242"
+           y="12.068855"
+           style="font-size:5.64444px;text-align:center;text-anchor:middle;stroke-width:0.264583">LED Matrix</tspan></text>
+      <g
+         id="g1065">
+        <rect
+           style="fill:none;stroke:#000000;stroke-width:0.529167;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect847"
+           width="37.041664"
+           height="21.166666"
+           x="10.583333"
+           y="26.458332" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:5.64444px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+           x="29.104223"
+           y="38.499603"
+           id="text845-3"><tspan
+             sodipodi:role="line"
+             id="tspan843-9"
+             x="29.104223"
+             y="38.499603"
+             style="font-size:5.64444px;text-align:center;text-anchor:middle;stroke-width:0.264583">Graphics</tspan></text>
+      </g>
+    </g>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 47.624998,37.041665 H 68.791663"
+       id="path942" />
+    <g
+       id="g1136">
+      <rect
+         style="fill:none;stroke:#000000;stroke-width:0.529167;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect837-2"
+         width="105.83334"
+         height="52.916664"
+         x="58.208328"
+         y="5.2916665" />
+      <text
+         xml:space="preserve"
+         style="font-size:5.64444px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="113.6385"
+         y="12.093659"
+         id="text920"><tspan
+           sodipodi:role="line"
+           id="tspan918"
+           x="113.6385"
+           y="12.093659"
+           style="font-size:5.64444px;stroke-width:0.264583">Feather M0/M4 Microcontroller</tspan></text>
+      <g
+         id="g1118">
+        <g
+           id="g1070">
+          <rect
+             style="fill:none;stroke:#000000;stroke-width:0.529167;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             id="rect847-6"
+             width="42.333332"
+             height="21.166664"
+             x="68.65937"
+             y="26.32604" />
+          <text
+             xml:space="preserve"
+             style="font-style:normal;font-weight:normal;font-size:5.64444px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+             x="89.826111"
+             y="38.579556"
+             id="text845-3-0"><tspan
+               sodipodi:role="line"
+               id="tspan843-9-9"
+               x="89.826111"
+               y="38.579556"
+               style="font-size:5.64444px;text-align:center;text-anchor:middle;stroke-width:0.264583">Adafruit Libs</tspan></text>
+        </g>
+        <g
+           id="g1075">
+          <rect
+             style="fill:none;stroke:#000000;stroke-width:0.529167;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             id="rect847-6-5"
+             width="37.306259"
+             height="21.166664"
+             x="116.15207"
+             y="26.32604" />
+          <text
+             xml:space="preserve"
+             style="font-style:normal;font-weight:normal;font-size:5.64444px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+             x="134.80515"
+             y="38.684284"
+             id="text845-3-0-5"><tspan
+               sodipodi:role="line"
+               id="tspan843-9-9-7"
+               x="134.80515"
+               y="38.684284"
+               style="font-size:5.64444px;text-align:center;text-anchor:middle;stroke-width:0.264583">controller/</tspan></text>
+        </g>
+        <rect
+           style="fill:none;stroke:#000000;stroke-width:0.529167;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect922"
+           width="95.382286"
+           height="37.041664"
+           x="63.367702"
+           y="15.742707" />
+        <text
+           xml:space="preserve"
+           style="font-size:5.64444px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle;stroke-width:0.264583"
+           x="113.6385"
+           y="22.676992"
+           id="text920-0"><tspan
+             sodipodi:role="line"
+             id="tspan918-0"
+             x="113.6385"
+             y="22.676992"
+             style="font-size:5.64444px;stroke-width:0.264583">CircuitPython 5.X</tspan></text>
+        <path
+           style="fill:none;stroke:#000000;stroke-width:0.52916664;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+           d="m 110.9927,36.909374 h 5.29167"
+           id="path944" />
+      </g>
+    </g>
+    <g
+       id="g1183">
+      <rect
+         style="fill:none;stroke:#000000;stroke-width:0.529167;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect837-2-8"
+         width="211.53436"
+         height="52.916664"
+         x="185.34064"
+         y="5.291667" />
+      <text
+         xml:space="preserve"
+         style="font-size:5.64444px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="293.68744"
+         y="12.09366"
+         id="text920-9"><tspan
+           sodipodi:role="line"
+           id="tspan918-7"
+           x="293.68744"
+           y="12.09366"
+           style="font-size:5.64444px;stroke-width:0.264583">Host Computer</tspan></text>
+      <g
+         id="g1155">
+        <g
+           id="g1080">
+          <rect
+             style="fill:none;stroke:#000000;stroke-width:0.529167;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             id="rect847-6-3"
+             width="31.74999"
+             height="21.166664"
+             x="195.79167"
+             y="26.326042" />
+          <text
+             xml:space="preserve"
+             style="font-style:normal;font-weight:normal;font-size:5.64444px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+             x="211.66679"
+             y="38.57951"
+             id="text845-3-0-0"><tspan
+               sodipodi:role="line"
+               id="tspan843-9-9-4"
+               x="211.66679"
+               y="38.57951"
+               style="font-size:5.64444px;text-align:center;text-anchor:middle;stroke-width:0.264583">pySerial</tspan></text>
+        </g>
+        <g
+           id="g1085">
+          <rect
+             style="fill:none;stroke:#000000;stroke-width:0.529167;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             id="rect847-6-5-4"
+             width="31.882271"
+             height="21.166664"
+             x="232.83331"
+             y="26.458332" />
+          <text
+             xml:space="preserve"
+             style="font-style:normal;font-weight:normal;font-size:5.64444px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+             x="248.84081"
+             y="38.659412"
+             id="text845-3-0-5-9"><tspan
+               sodipodi:role="line"
+               id="tspan843-9-9-7-9"
+               x="248.84081"
+               y="38.659412"
+               style="font-size:5.64444px;text-align:center;text-anchor:middle;stroke-width:0.264583">driver/</tspan></text>
+        </g>
+        <rect
+           style="fill:none;stroke:#000000;stroke-width:0.529167;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect922-5"
+           width="126.99997"
+           height="37.041664"
+           x="190.5"
+           y="15.742707" />
+        <text
+           xml:space="preserve"
+           style="font-size:5.64444px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle;stroke-width:0.264583"
+           x="254.00006"
+           y="22.676992"
+           id="text920-0-9"><tspan
+             sodipodi:role="line"
+             id="tspan918-0-8"
+             x="254.00006"
+             y="22.676992"
+             style="font-size:5.64444px;stroke-width:0.264583">Python 3.X</tspan></text>
+        <path
+           style="fill:none;stroke:#000000;stroke-width:0.52916664;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+           d="m 227.54166,37.041666 h 5.29167"
+           id="path944-1" />
+        <g
+           id="g1090">
+          <rect
+             style="fill:none;stroke:#000000;stroke-width:0.529167;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             id="rect847-6-5-4-3"
+             width="42.333332"
+             height="21.166664"
+             x="269.875"
+             y="26.458334" />
+          <text
+             xml:space="preserve"
+             style="font-style:normal;font-weight:normal;font-size:5.64444px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+             x="291.17401"
+             y="38.659431"
+             id="text845-3-0-5-9-6"><tspan
+               sodipodi:role="line"
+               id="tspan843-9-9-7-9-9"
+               x="291.17401"
+               y="38.659431"
+               style="font-size:5.64444px;text-align:center;text-anchor:middle;stroke-width:0.264583">Python.NET</tspan></text>
+        </g>
+        <path
+           style="fill:none;stroke:#000000;stroke-width:0.52916664;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+           d="m 264.58331,37.041664 h 5.29167"
+           id="path944-1-9" />
+      </g>
+      <rect
+         style="fill:none;stroke:#000000;stroke-width:0.529167;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect847-6-5-4-3-5"
+         width="68.791656"
+         height="21.166664"
+         x="322.79166"
+         y="26.458332" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:5.64444px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+         x="357.31989"
+         y="38.68428"
+         id="text845-3-0-5-9-6-7"><tspan
+           sodipodi:role="line"
+           id="tspan843-9-9-7-9-9-9"
+           x="357.31989"
+           y="38.68428"
+           style="font-size:5.64444px;text-align:center;text-anchor:middle;stroke-width:0.264583">LibreHardwareMonitor</tspan></text>
+      <rect
+         style="fill:none;stroke:#000000;stroke-width:0.52916664;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect847-6-5-4-3-5-7"
+         width="52.91666"
+         height="21.166664"
+         x="185.20833"
+         y="63.499996" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:5.64444px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+         x="211.79915"
+         y="75.725952"
+         id="text845-3-0-5-9-6-7-0"><tspan
+           sodipodi:role="line"
+           id="tspan843-9-9-7-9-9-9-9"
+           x="211.79915"
+           y="75.725952"
+           style="font-size:5.64444px;text-align:center;text-anchor:middle;stroke-width:0.264583">Power Supply</tspan></text>
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.52916664;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+         d="m 312.20831,37.041662 h 10.58333"
+         id="path1054" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.52916664;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+         d="M 211.66665,63.499997 V 58.20833"
+         id="path1232" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.52916664;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+         d="M 185.20832,74.08333 H 26.458332 v -15.875"
+         id="path1234" />
+    </g>
+    <g
+       id="g1188">
+      <path
+         style="fill:none;stroke:#000000;stroke-width:0.529167;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 195.79165,37.041665 H 153.45832"
+         id="path1052" />
+      <text
+         xml:space="preserve"
+         style="font-size:5.64444px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="174.62508"
+         y="33.282375"
+         id="text1058"><tspan
+           sodipodi:role="line"
+           id="tspan1056"
+           x="174.62508"
+           y="33.282375"
+           style="font-size:5.64444px;stroke-width:0.264583">USB</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:5.64444px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="105.83333"
+         y="70.43428"
+         id="text1256"><tspan
+           sodipodi:role="line"
+           id="tspan1254"
+           x="105.83333"
+           y="70.43428"
+           style="font-size:5.64444px;stroke-width:0.264583">Molex</tspan></text>
+    </g>
+  </g>
+</svg>
