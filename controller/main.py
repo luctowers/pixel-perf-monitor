@@ -16,24 +16,31 @@ display = FramebufferDisplay(matrix, auto_refresh=False)
 
 g = displayio.Group()
 cpu = CpuWidget(0, 0, matrix.width, primary_color=0xf00000, secondary_color=0x000010, backlight_color=0x201010)
-gpu = GpuWidget(0, 9, matrix.width, primary_color=0x002000, secondary_color=0x000010, backlight_color=0x201010)
+gpu = GpuWidget(0, 9, matrix.width, primary_color=0x003000, secondary_color=0x000010, backlight_color=0x201010)
 g.append(cpu)
 g.append(gpu)
 display.show(g)
 
-cpu.memory_usage = 0.6
-gpu.activity = 0.4
-gpu.memory_usage = 0.35
-gpu.temperature = 49
+def execute(instruction, arguments):
+  if instruction == "cpu_usage":
+    cpu.activity = list(map(float, arguments))
+  elif instruction == "cpu_temperature":
+    cpu.temperature = max(map(round, map(float, arguments)))
+  elif instruction == "cpu_memory_usage":
+    cpu.memory_usage = max(map(float, arguments))
+  elif instruction == "gpu_usage":
+    gpu.activity = max(map(float, arguments))
+  elif instruction == "gpu_temperature":
+    gpu.temperature = max(map(round, map(float, arguments)))
+  elif instruction == "gpu_memory_usage":
+    gpu.memory_usage = max(map(float, arguments))
 
 while True:
   display.refresh(target_frames_per_second=60, minimum_frames_per_second=0)
   while supervisor.runtime.serial_bytes_available:
     command = input().split()
     if command:
-      operation = command[0]
-      arguments = command[1:]
-      if operation == "cpu_load":
-        cpu.activity = list(map(float, arguments))
-      elif operation == "cpu_temperature":
-        cpu.temperature = max(map(round,map(float, arguments)))
+      try:
+        execute(command[0], command[1:])
+      except Exception as e:
+        print(e)

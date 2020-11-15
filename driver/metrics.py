@@ -1,5 +1,7 @@
 import collections
 from cpu import cpu_list
+from memory import memory_list
+from gpu import gpu_list
 
 add = lambda a, b: a + b
 sub = lambda a, b: a - b
@@ -17,7 +19,7 @@ def unary_operation(func, A):
 
 class SimpleMovingAverageMap:
 
-  def __init__(self, func, sample_count):
+  def __init__(self, sample_count, func):
     self.func = func
     self.sample_count = sample_count
     self.queue = collections.deque()
@@ -34,35 +36,50 @@ class SimpleMovingAverageMap:
       self.sum = pairwise_operation(sub, self.sum, self.queue.popleft())
     return onetomany_operation(div, self.sum, len(self.queue))
 
-def generate_metrics(sma_samples=1, cpu_indices=[0]):
-
-  cpu_load_i = SimpleMovingAverageMap(
+def generate_float_sma_metric(sma_samples, precision, func):
+  integer_metric = SimpleMovingAverageMap(
+    sma_samples,
     lambda: onetomany_operation(
-      mul,
-      [
-        load
-        for i in cpu_indices
-        for load in cpu_list[i].loads()
-      ],
-      100
-    ),
-    sma_samples
+      div,
+      func(),
+      precision
+    )
   )
+  return lambda: onetomany_operation(mul, integer_metric(), precision)
 
-  cpu_temperature_i = SimpleMovingAverageMap(
-    lambda: onetomany_operation(
-      mul,
-      [
-        temp
-        for i in cpu_indices
-        for temp in cpu_list[i].temperatures()
-      ],
-      10
-    ),
-    sma_samples
-  )
+def generate_metrics(sma_samples=1):
 
   return {
-    "cpu_load": lambda: onetomany_operation(div, cpu_load_i(), 10000),
-    "cpu_temperature": lambda: onetomany_operation(div, cpu_temperature_i(), 10),
+    "cpu_usage": generate_float_sma_metric(
+      sma_samples, .001,
+      lambda: [
+        usage
+        for cpu in cpu_list
+        for usage in cpu.usages()
+      ]
+    ),
+    "cpu_temperature": generate_float_sma_metric(
+      sma_samples, .1,
+      lambda: [
+        temp
+        for cpu in cpu_list
+        for temp in cpu.temperatures()
+      ]
+    ),
+    "cpu_memory_usage": generate_float_sma_metric(
+      sma_samples, .001,
+      lambda: [memory_list[0].usage()] if memory_list and memory_list[0].usage() != None else []
+    ),
+    "gpu_usage": generate_float_sma_metric(
+      sma_samples, .001,
+      lambda: [ gpu.usage() for gpu in gpu_list ]
+    ),
+    "gpu_temperature": generate_float_sma_metric(
+      sma_samples, .001,
+      lambda: [ gpu.temperature() for gpu in gpu_list ]
+    ),
+    "gpu_memory_usage": generate_float_sma_metric(
+      sma_samples, .001,
+      lambda: [ gpu.memory_usage() for gpu in gpu_list ]
+    )
   }

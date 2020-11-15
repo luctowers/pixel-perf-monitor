@@ -42,7 +42,7 @@ class CPU:
   def temperatures(self):
     return [ sensor.Value for sensor in self.temperature_sensors ]
 
-  def loads(self):
-    return [ sensor.Value for sensor in self.load_sensors ]
+  def usages(self):
+    return [ sensor.Value / 100 for sensor in self.load_sensors ]
 
 cpu_list = list(map(CPU, filter(lambda hw: hw.HardwareType == Hardware.HardwareType.Cpu, computer.Hardware)))

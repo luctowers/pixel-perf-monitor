@@ -36,16 +36,18 @@ def main():
     ser = connect(args.serial_port, 1/args.polling_rate, args.connect_timeout)
   while True:
     for metric, func in metrics.items():
-      message = "%s %s" % (metric, " ".join(map(repr, func())))
-      if args.serial_port:
-        try:
-          send(message, ser)
-        except Exception as e:
-          print(e, file=sys.stderr)
-          ser.close()
-          ser = connect(args.serial_port, 1/args.polling_rate, args.connect_timeout)
-      else:
-        print(message)
+      data = func()
+      if data:
+        message = "%s %s" % (metric, " ".join(map(repr, func())))
+        if args.serial_port:
+          try:
+            send(message, ser)
+          except Exception as e:
+            print(e, file=sys.stderr)
+            ser.close()
+            ser = connect(args.serial_port, 1/args.polling_rate, args.connect_timeout)
+        else:
+          print(message)
     time.sleep(1/args.polling_rate)
     monitoring.update()
 

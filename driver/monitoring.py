@@ -8,6 +8,8 @@ from LibreHardwareMonitor import Hardware
 
 computer = Hardware.Computer()
 computer.IsCpuEnabled = True
+computer.IsMemoryEnabled = True
+computer.IsGpuEnabled = True
 computer.Open()
 
 def update():
