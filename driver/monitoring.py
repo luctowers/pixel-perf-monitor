@@ -10,6 +10,7 @@ computer = Hardware.Computer()
 computer.IsCpuEnabled = True
 computer.IsMemoryEnabled = True
 computer.IsGpuEnabled = True
+computer.IsStorageEnabled = True
 computer.Open()
 
 def update():

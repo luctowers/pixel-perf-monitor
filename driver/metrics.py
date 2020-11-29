@@ -2,6 +2,7 @@ import collections
 from cpu import cpu_list
 from memory import memory_list
 from gpu import gpu_list
+from storage import storage_list
 
 add = lambda a, b: a + b
 sub = lambda a, b: a - b
@@ -81,5 +82,17 @@ def generate_metrics(sma_samples=1):
     "gpu_memory_usage": generate_float_sma_metric(
       sma_samples, .001,
       lambda: [ gpu.memory_usage() for gpu in gpu_list ]
+    ),
+    "storage_usage": generate_float_sma_metric(
+      sma_samples, .001,
+      lambda: [ storage.usage() for storage in storage_list ]
+    ),
+    "storage_read_throughput": generate_float_sma_metric(
+      sma_samples, 1,
+      lambda: [ storage.read_throughput() for storage in storage_list ]
+    ),
+    "storage_write_throughput": generate_float_sma_metric(
+      sma_samples, 1,
+      lambda: [ storage.write_throughput() for storage in storage_list ]
     )
   }

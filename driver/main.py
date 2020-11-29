@@ -11,11 +11,11 @@ parser.add_argument("--polling_rate", metavar="n", type=int, default=4, help="nu
 parser.add_argument("--sma_samples", metavar="n", type=int, default=8, help="number of times per second to process statistics (default: 12)")
 parser.add_argument("--connect_timeout", metavar="n", type=float, default=1, help="number of times per second to process statistics (default: 12)")
 
-def connect(port, write_timeout, connect_timeout):
+def connect(port, access_timeout, connect_timeout):
   ser = None
   while not ser:
     try:
-      ser = serial.Serial(port, write_timeout=write_timeout)
+      ser = serial.Serial(port, timeout=access_timeout, write_timeout=access_timeout)
     except Exception as e:
       print(e, file=sys.stderr)
       time.sleep(connect_timeout)
