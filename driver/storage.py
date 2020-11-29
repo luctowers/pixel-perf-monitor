@@ -3,9 +3,9 @@ from monitoring import computer
 from LibreHardwareMonitor import Hardware
 
 # TODO find a better way to categorize sensors than by name
-used_space_pattern = re.compile(r"Used Space")
-read_rate_pattern = re.compile(r"Read Rate")
-write_rate_pattern = re.compile(r"Write Rate")
+USED_SPACE_NAME = "Used Space"
+READ_RATE_NAME = "Read Rate"
+WRITE_RATE_NAME = "Write Rate"
 
 class Storage:
 
@@ -17,12 +17,12 @@ class Storage:
     self.read_throughput_sensor = None
     for sensor in hw.Sensors:
       if sensor.SensorType == Hardware.SensorType.Load:
-        if used_space_pattern.fullmatch(sensor.Name):
+        if sensor.Name == USED_SPACE_NAME:
           self.used_space_sensor = sensor
       elif sensor.SensorType == Hardware.SensorType.Throughput:
-          if read_rate_pattern.fullmatch(sensor.Name):
+          if sensor.Name == READ_RATE_NAME:
             self.read_rate_sensor = sensor
-          elif write_rate_pattern.fullmatch(sensor.Name):
+          elif sensor.Name == WRITE_RATE_NAME:
             self.write_rate_sensor = sensor
 
   def update(self):

@@ -3,7 +3,7 @@ from monitoring import computer
 from LibreHardwareMonitor import Hardware
 
 # TODO find a better way to categorize sensors than by name
-memory_name_pattern = re.compile(r"Memory")
+MEMORY_NAME = "Memory"
 
 class Memory:
 
@@ -13,7 +13,7 @@ class Memory:
     self.ram_usage_sensor = None
     for sensor in hw.Sensors:
       if sensor.SensorType == Hardware.SensorType.Load:
-        if memory_name_pattern.fullmatch(sensor.Name):
+        if sensor.Name == MEMORY_NAME:
           self.ram_usage_sensor = sensor
 
   def update(self):

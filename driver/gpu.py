@@ -3,8 +3,8 @@ from monitoring import computer
 from LibreHardwareMonitor import Hardware
 
 # TODO find a better way to categorize sensors than by name
-core_name_pattern = re.compile(r"GPU Core")
-memory_name_pattern = re.compile(r"GPU Memory")
+CORE_NAME = "GPU Core"
+MEMORY_NAME = "GPU Memory"
 
 class GPU:
 
@@ -16,12 +16,12 @@ class GPU:
     self.memory_load_sensor = None
     for sensor in hw.Sensors:
       if sensor.SensorType == Hardware.SensorType.Temperature:
-        if core_name_pattern.fullmatch(sensor.Name):
+        if sensor.Name == CORE_NAME:
           self.temperature_sensor = sensor
       elif sensor.SensorType == Hardware.SensorType.Load:
-        if core_name_pattern.fullmatch(sensor.Name):
+        if sensor.Name == CORE_NAME:
           self.load_sensor = sensor
-        elif memory_name_pattern.fullmatch(sensor.Name):
+        elif sensor.Name == MEMORY_NAME:
           self.memory_load_sensor = sensor
 
   def update(self):

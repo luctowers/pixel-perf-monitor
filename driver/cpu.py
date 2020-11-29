@@ -3,9 +3,9 @@ from monitoring import computer
 from LibreHardwareMonitor import Hardware
 
 # TODO find a better way to categorize sensors than by name
-core_name_pattern = re.compile(r"CPU Core #[1-9][0-9]*")
-ccd_name_pattern = re.compile(r"CCD[1-9][0-9]* \(Tdie\)")
-package_name_pattern = re.compile(r"CPU Package")
+CORE_NAME_PATTERN = re.compile(r"CPU Core #[1-9][0-9]*")
+CDD_NAME_PATTERN = re.compile(r"CCD[1-9][0-9]* \(Tdie\)")
+PACKAGE_NAME = "CPU Package"
 
 class CPU:
 
@@ -20,16 +20,16 @@ class CPU:
     other_loads = []
     for sensor in hw.Sensors:
       if sensor.SensorType == Hardware.SensorType.Temperature:
-        if core_name_pattern.fullmatch(sensor.Name):
+        if CORE_NAME_PATTERN.fullmatch(sensor.Name):
           core_temperatures.append(sensor)
-        elif ccd_name_pattern.fullmatch(sensor.Name):
+        elif CDD_NAME_PATTERN.fullmatch(sensor.Name):
           ccd_temperatures.append(sensor)
-        elif package_name_pattern.fullmatch(sensor.Name):
+        elif sensor.Name == PACKAGE_NAME:
           package_temperatures.append(sensor)
         else:
           other_temperatures.append(sensor)
       if sensor.SensorType == Hardware.SensorType.Load:
-        if core_name_pattern.fullmatch(sensor.Name):
+        if CORE_NAME_PATTERN.fullmatch(sensor.Name):
           core_loads.append(sensor)
         else:
           other_loads.append(sensor)
