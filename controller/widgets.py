@@ -101,7 +101,7 @@ class StorageWidget(displayio.Group):
 
   @property
   def write_throughput(self):
-    return self._storage_usage_graphic.value
+    return self._write_throughput
 
   @write_throughput.setter
   def write_throughput(self, value):
@@ -110,3 +110,37 @@ class StorageWidget(displayio.Group):
 
   def update_throughput_text(self):
     self._right_text_graphic.text = "%04d" % round(max(0, min(9999, max(self._read_throughput, self._write_throughput) / 1000000)))
+
+class NetworkWidget(displayio.Group):
+
+  def __init__(self, x, y, width, primary_color, backlight_color):
+    self._left_text_graphic = Label(MINISTAT_FONT, text="000↓", color=0x000000, anchor_point=(0.0,0.0), anchored_position=(1,1))
+    self._right_text_graphic = Label(MINISTAT_FONT, text="↑000", color=0x000000, anchor_point=(1.0,0.0), anchored_position=(width,1))
+    self._background_graphic = ScalarRect(0, 0, 7, width, primary_color, backlight_color)
+    self._background_graphic.transpose_xy = True
+    self._background_graphic.flip_x = True
+    super().__init__(x=x, y=y)
+    self.append(self._background_graphic)
+    self.append(self._left_text_graphic)
+    self.append(self._right_text_graphic)
+    self._download_throughput = 0
+    self._upload_throughput = 0
+    self._background_graphic.value = 0
+
+  @property
+  def download_throughput(self):
+    return self._read_throughput
+
+  @download_throughput.setter
+  def download_throughput(self, value):
+    self._download_throughput = value
+    self._left_text_graphic.text = "%03d↓" % round(max(0, min(999, self._download_throughput / 125000)))
+
+  @property
+  def upload_throughput(self):
+    return self._upload_throughput.value
+
+  @upload_throughput.setter
+  def upload_throughput(self, value):
+    self._upload_throughput = value
+    self._right_text_graphic.text = "↑%03d" % round(max(0, min(999, self._upload_throughput / 125000)))

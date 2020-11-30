@@ -11,6 +11,7 @@ computer.IsCpuEnabled = True
 computer.IsMemoryEnabled = True
 computer.IsGpuEnabled = True
 computer.IsStorageEnabled = True
+computer.IsNetworkEnabled = True
 computer.Open()
 
 def update():

@@ -3,7 +3,7 @@ import supervisor
 import displayio
 from framebufferio import FramebufferDisplay
 from rgbmatrix import RGBMatrix
-from widgets import CpuWidget, GpuWidget, StorageWidget
+from widgets import CpuWidget, GpuWidget, StorageWidget, NetworkWidget
 
 displayio.release_displays()
 matrix = RGBMatrix(
@@ -18,9 +18,11 @@ g = displayio.Group()
 cpu = CpuWidget(0, 0, matrix.width, primary_color=0xf00000, secondary_color=0x000010, backlight_color=0x201010)
 gpu = GpuWidget(0, 9, matrix.width, primary_color=0x003000, secondary_color=0x000010, backlight_color=0x201010)
 storage = StorageWidget(0, 18, matrix.width, primary_color=0xf01000, backlight_color=0x201010)
+network = NetworkWidget(0, 25, matrix.width, primary_color=0xf01000, backlight_color=0x201010)
 g.append(cpu)
 g.append(gpu)
 g.append(storage)
+g.append(network)
 display.show(g)
 
 def execute(instruction, arguments):
@@ -42,6 +44,10 @@ def execute(instruction, arguments):
     storage.read_throughput = sum(map(float, arguments))
   elif instruction == "storage_write_throughput":
     storage.write_throughput = sum(map(float, arguments))
+  elif instruction == "network_download_throughput":
+    network.download_throughput = sum(map(float, arguments))
+  elif instruction == "network_upload_throughput":
+    network.upload_throughput = sum(map(float, arguments))
 
 while True:
   display.refresh(target_frames_per_second=60, minimum_frames_per_second=0)

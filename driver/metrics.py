@@ -3,6 +3,7 @@ from cpu import cpu_list
 from memory import memory_list
 from gpu import gpu_list
 from storage import storage_list
+from network import network_list
 
 add = lambda a, b: a + b
 sub = lambda a, b: a - b
@@ -94,5 +95,13 @@ def generate_metrics(sma_samples=1):
     "storage_write_throughput": generate_float_sma_metric(
       sma_samples, 1,
       lambda: [ storage.write_throughput() for storage in storage_list ]
+    ),
+    "network_download_throughput": generate_float_sma_metric(
+      sma_samples, 1,
+      lambda: [ network.download_throughput() for network in network_list ]
+    ),
+    "network_upload_throughput": generate_float_sma_metric(
+      sma_samples, 1,
+      lambda: [ network.upload_throughput() for network in network_list ]
     )
   }
